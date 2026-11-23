@@ -45,12 +45,18 @@
     <p><a class="btn" id="go" href="#">进入网站 →</a></p>
     <p style="font-size:.85rem">目标地址：<code id="t"></code></p>
     <div class="bar"><i></i></div>
+    <p id="slow" hidden style="margin-top:20px;color:#8a5a1f;font-size:.9rem">
+      还没跳过去？演示机可能休眠了 —— 让维护者跑一次 <code>./start-demo.sh</code> 就好。
+    </p>
   </div>
   <script>
     var t = document.getElementById("t");
     var go = document.getElementById("go");
     t.textContent = TARGET;
     go.href = TARGET;
+    setTimeout(function () {
+      if (!document.hidden) document.getElementById("slow").hidden = false;
+    }, 8000);
   </script>
 </body>
 </html>
